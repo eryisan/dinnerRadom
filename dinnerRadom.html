@@ -3,37 +3,65 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>吃饭</title>
+    <title>吃饭随机</title>
     <style>
-        div {
+        body{
+            background-color: black;
+        }
+        div{
+            width:900px;
+            height:100px;
+            background-color: rgb(0, 119, 255);
+            color:white;
+            text-align:center;
+            line-height:100px;
+            margin:400px auto 0;
+            font-size:70px;
+        }
+        button {
+            display:block;
             margin: 0 auto;
-            width: 600px;
+            width: 900px;
             height: 700px;
             font-size: 80px;
             text-align: center;
-            margin-top:500px;
+            padding:50px;
+            margin-top:100px;
             font-weight: bold;
-            background-color:black;
-            color:white;
+            color:black;
+            background-color: white;
         }
     </style>
 </head>
 
 <body>
-    <div id="dinner"></div>
+    <div id="user"></div>
+    <button id="btn"></button>
     <script>
-        var items = ["春记", "广记", "中元", "成记"];
-        var randomItem = items[Math.floor(Math.random() * items.length)];
-var randomItem2 = items[Math.floor(Math.random() * items.length)];
-var randomItem3 = items[Math.floor(Math.random() * items.length)];
-var randomItem4 = items[Math.floor(Math.random() * items.length)];
-var randomItem5 = items[Math.floor(Math.random() * items.length)];
-        var div = document.getElementById("dinner");
-        div.innerHTML = "星期一:"+randomItem+"<br>"
-         +"星期二:"+randomItem2+"<br>"
-         +"星期三:"+randomItem3+"<br>"
-         +"星期四:"+randomItem4+"<br>"
-         +"星期五:"+randomItem5;
+        var items = ["春记&广记","中元炒菜","中元煮鱼|炒饭","春记&广记", "中元炒菜"];
+        var btn = document.getElementById("btn");
+        Array.prototype.shuffle = function() {
+            let m = this.length, i;
+            while (m) {
+                i = (Math.random() * m--) >>> 0;
+                [this[m], this[i]] = [this[i], this[m]]
+            }
+            return this;
+        }
+        
+        var dates = ["星期一","星期二","星期三","星期四","星期五"];
+        btn.onclick = function(){
+            items.shuffle();
+            btn.innerHTML = "";
+            for(var i=0,j=0,len=items.length,jlen=dates.length;i<len&&j<jlen;i++,j++){
+                    btn.innerHTML += dates[j]+":"+items[i]+"<br>";
+            }
+        };
+        
+        var people = ["文兄", "阿辉", "超哥", "东哥"];
+        var randomItem = people[Math.floor(Math.random() * (items.length-1))];
+        var user = document.getElementById("user");
+        user.innerHTML = randomItem;
     </script>
 </body>
 
