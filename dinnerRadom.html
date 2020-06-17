@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>吃饭</title>
+    <style>
+        div {
+            margin: 0 auto;
+            width: 600px;
+            height: 500px;
+            font-size: 80px;
+            text-align: center;
+            
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dinner"></div>
+    <script>
+        var items = ["春记", "广记", "中元", "成记", "东哥", "阿辉", "文兄", 
+
+"超哥"];
+        var randomItem = items[Math.floor(Math.random() * items.length)];
+var randomItem2 = items[Math.floor(Math.random() * items.length)];
+var randomItem3 = items[Math.floor(Math.random() * items.length)];
+var randomItem4 = items[Math.floor(Math.random() * items.length)];
+var randomItem5 = items[Math.floor(Math.random() * items.length)];
+        var div = document.getElementById("dinner");
+        div.innerHTML = "星期一:"+randomItem+"<br>"
+         +"星期二:"+randomItem2+"<br>"
+         +"星期三:"+randomItem3+"<br>"
+         +"星期四:"+randomItem4+"<br>"
+         +"星期五:"+randomItem5;
+    </script>
+</body>
+
+</html>
