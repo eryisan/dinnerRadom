@@ -52,6 +52,8 @@
         var dates = ["星期一","星期二","星期三","星期四","星期五"];
         btn.onclick = function(){
             items.shuffle();
+            items.shuffle();
+            items.shuffle();
             btn.innerHTML = "";
             for(var i=0,j=0,len=items.length,jlen=dates.length;i<len&&j<jlen;i++,j++){
                     btn.innerHTML += dates[j]+":"+items[i]+"<br>";
